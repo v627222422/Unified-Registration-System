@@ -1,66 +1,41 @@
-// pages/list/list.js
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    showModal: false,
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad: function () {
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 弹窗
    */
-  onReady: function () {
-
+  showDialogBtn: function () {
+    this.setData({
+      showModal: true
+    })
   },
-
   /**
-   * 生命周期函数--监听页面显示
+   * 弹出框蒙层截断touchmove事件
    */
-  onShow: function () {
-
+  preventTouchMove: function () {
   },
-
   /**
-   * 生命周期函数--监听页面隐藏
+   * 隐藏模态对话框
    */
-  onHide: function () {
-
+  hideModal: function () {
+    this.setData({
+      showModal: false
+    });
   },
-
   /**
-   * 生命周期函数--监听页面卸载
+   * 对话框取消按钮点击事件
    */
-  onUnload: function () {
-
+  onCancel: function () {
+    this.hideModal();
   },
-
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 对话框确认按钮点击事件
    */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onConfirm: function () {
+    this.hideModal();
   }
 })

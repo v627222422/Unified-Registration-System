@@ -1,3 +1,5 @@
 /* pages/list/list.wxss */
 @import '../../component/colorUI/colorui.wxss';
 @import '../../component/colorUI/icon.wxss';
+
+
