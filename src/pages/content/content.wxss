@@ -1,4 +1,6 @@
 /* pages/content/content.wxss */
+@import '../../component/colorUI/colorui.wxss';
+@import '../../component/colorUI/icon.wxss';
 .modal-mask {
   width: 100%;
   height: 100%;

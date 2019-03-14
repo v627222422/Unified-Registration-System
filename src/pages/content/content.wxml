@@ -1,52 +1,18 @@
 <!--pages/content/content.wxml-->
-<text>pages/content/content.wxml</text>
- <view class="cu-custom" style="height:{{CustomBar}}px;">
-  <view class="cu-bar fixed bg-gradual-green" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
-      <text class='icon-back'></text> 报名信息填写
-    </navigator>
-  </view>
- </view>
-
- <form>
-<view class="cu-form-group"></view>
-
-<view class="cu-form-group margin-top">
-   <view class='title'>姓名</view>
-   <input placeholder='真实姓名' class='title'></input>
-   <text class='icon-profile text-blue'></text>
+<view class='margin-top'></view>
+<form>
+<view wx:for='{{dataList}}'>
+<view  class="cu-form-group">
+   <view class='title'>{{item.name}}</view>
+   <input placeholder='{{item.tip}}' class='title maxlength="30" cursor-spacing="10"'></input>
+  <text wx:if='{{stateList[index]}}' class='icon-check lg text-green'></text>
+  <text wx:else class='icon-info lg text-red'  data-index='{{index}}' bindtap='addDis'></text>
+</view>
+<view wx:if='{{isShowDis[index]}}' class='text-grey padding-left'>{{item.description}}</view>
 </view>
 
-<view class="cu-form-group">
-   <view class='title'>身份证号</view>
-   <input placeholder='请输入18位身份证号' class='title'></input>
-   <text class='icon-form text-blue'></text>
-</view>
 
-<view class="cu-form-group">
-   <view class='title'>联系电话</view>
-   <input placeholder='13位手机号' class='title'></input>
-   <text class='icon-phone text-blue'></text>
-</view>
-
-<view class="cu-form-group">
-   <view class='title'>常用邮箱</view>
-   <input placeholder='注意格式正确' class='title'></input>
-    <text class='icon-send text-blue'></text>
-</view>
-<view class="cu-form-group">
-   <view class='title'>学校</view>
-   <input class='title'></input>
-   <text class='icon-home text-blue'></text>
-</view>
-
-<view class="cu-form-group">
-   <view class='title'>专业</view>
-   <input placeholder='请填写完整'></input>
-    <text class='icon-sort text-blue'></text>
-</view>
-
-<button class=" bg-green" bindtap="showDialogBtn">提交</button>
+<button class=" bg-green margin-top" bindtap="showDialogBtn">提交</button>
 <!--弹窗-->
 <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
 <view class="modal-dialog" wx:if="{{showModal}}">
@@ -55,7 +21,7 @@
     <view>提交成功！</view>
   </view>
   <view class="modal-footer">
-    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    <view class="btn-confirm" bindtap="hideModal" data-status="confirm">确定</view>
   </view>
 </view>
 </form>

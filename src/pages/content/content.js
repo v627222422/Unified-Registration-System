@@ -3,40 +3,61 @@
 Page({
   data: {
     showModal: false,
+    isShowDis:[false,false],
+    dataList:[
+      {
+        name: '姓名',
+        type: 'text',
+        defaultValue:null,
+        description:'1-4个字符',
+        tip:'真实姓名',
+        require: true,
+        case:null,
+        range:null,
+        subItem:null
+      },
+      {
+        name: '学号',
+        type: 'number',
+        defaultValue: null,
+        description: '30位以内纯数字',
+        tip: '',
+        require: true,
+        case: null,
+        range: null,
+        subItem: null
+      }
+    ],
+    stateList: [false, true]
   },
+  
   onLoad: function () {
   },
-  /**
-   * 弹窗
-   */
+  addDis(event){
+    var s=true;
+    var iss = this.data.isShowDis;
+    var index = event.currentTarget.dataset.index;
+    var playDIS = "isShowDis[" + 0 + "]";
+    if (iss[index] == false) {
+      s = true;
+    }
+    else {
+      s = false;
+    }
+   
+    this.setData({
+      [playDIS]:s
+    })
+  },
   showDialogBtn: function () {
     this.setData({
       showModal: true
-    })
+    });
   },
-  /**
-   * 弹出框蒙层截断touchmove事件
-   */
-  preventTouchMove: function () {
-  },
-  /**
-   * 隐藏模态对话框
-   */
   hideModal: function () {
     this.setData({
       showModal: false
     });
-  },
-  /**
-   * 对话框取消按钮点击事件
-   */
-  onCancel: function () {
-    this.hideModal();
-  },
-  /**
-   * 对话框确认按钮点击事件
-   */
-  onConfirm: function () {
-    this.hideModal();
   }
+
 })
