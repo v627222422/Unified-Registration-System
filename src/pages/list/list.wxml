@@ -17,37 +17,41 @@
 
 <view class="bg-white myclass1">  
     
-    <view class="padding align-start flex solid-bottom ">     
-      <view class='myclass7 padding-sm bg-gradual-blue padding radius text-center shadow-blur'>软件开发大赛</view>  
+    <view class="flex solid-bottom padding justify-center">     
+      <view class='flex-sub padding-sm margin-xs radius bg-gradual-blue text-center shadow-blur'>软件开发大赛</view>  
       <view class='myclass8'></view>
-      <view class='myclass4'>
+      <view class='flex-twice  padding-sm margin-xs radius'>
         <view class='margin-xs myclass3'>主办方：计算机院科学与技术协会</view>     
         <view class='margin-xs myclass5'>报名开始时间：2019-2-25</view>
         <view class='margin-xs myclass5'>报名结束时间：2019-4-25</view>
       </view> 
-      <button class="myclass6" bindtap='jumpPage'>报名</button>
+
     </view>
     
-    <view class="padding align-start flex solid-bottom ">     
-      <view class='myclass7 padding-sm bg-gradual-blue padding radius text-center shadow-blur'>生生不息配音大赛</view>  
+    <view class="flex solid-bottom padding justify-center ">     
+      <view class='flex-sub  padding-sm margin-xs radius bg-gradual-blue text-center shadow-blur'>生生不息配音大赛</view>  
       <view class='myclass8'></view>    
-      <view class='myclass4'>
+      <view class='flex-twice padding-sm margin-xs radius'>
         <view class='margin-xs myclass3'>主办方：计算机院学生会</view>     
         <view class='margin-xs myclass5'>报名开始时间：2019-2-25</view>
         <view class='margin-xs myclass5'>报名结束时间：2019-4-25</view>
       </view> 
-      <button class="myclass6" bindtap='jumpPage'>报名</button>
+  
     </view>
 
-    <view class="padding align-start flex solid-bottom " wx:for="{{activitylist}}">     
-      <view class='myclass7 padding-sm bg-gradual-blue padding radius text-center shadow-blur'>{{item.name}}</view>  
-      <view class='myclass8'></view>    
-      <view class='myclass4'>
+    <view class="flex solid-bottom padding justify-center"  wx:for="{{activitylist}}"  bindtap='jumpPage'>
+     
+      <view class='flex-sub  padding-sm margin-xs radius bg-gradual-blue text-center shadow-blur'> {{item.name}}</view>
+      <view class='myclass8'></view>
+         <view class='flex-twice padding-sm margin-xs radius'>
         <view class='margin-xs myclass3'>主办方：{{item.publisher}}</view>     
         <view class='margin-xs myclass5'>报名开始时间：{{item.startTime}}</view>
         <view class='margin-xs myclass5'>报名结束时间：{{item.endTime}}</view>
-      </view> 
-      <button class="myclass6" bindtap='jumpPage'>报名</button>
+        </view> 
+ 
+      
     </view>
+
+
 </view>
 

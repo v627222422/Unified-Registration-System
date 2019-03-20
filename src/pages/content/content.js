@@ -29,7 +29,7 @@ Page({
     //     subItem: null
     //   }
     // ],
-    stateList: [false, true]
+    stateList: [false, false]
   },
   
   onLoad: function () {
@@ -46,6 +46,22 @@ Page({
       success(res) {
         that.setData({ dataList: res.data });
         console.log(res.data)
+        var datalist = res.data;
+        var isShow = that.data.isShowDis;
+        var state = that.data.stateList
+        for (var i = 0; i < datalist.length; i++) {
+          isShow[i] = false;
+          state[i] = false;
+
+          console.log(i)
+        }
+
+        that.setData({
+          isShowDis: isShow,
+          stateList: state
+
+        })
+
       }
     })
     
@@ -55,7 +71,7 @@ Page({
     var s=true;
     var iss = this.data.isShowDis;
     var index = event.currentTarget.dataset.index;
-    var playDIS = "isShowDis[" + 0 + "]";
+    var playDIS = "isShowDis[" + index + "]";
     if (iss[index] == false) {
       s = true;
     }
